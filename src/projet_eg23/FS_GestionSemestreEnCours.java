@@ -24,6 +24,8 @@ import java.awt.Component;
 import javax.swing.JLabel;
 import javax.swing.JSpinner;
 import javax.swing.JButton;
+import java.awt.Color;
+import java.awt.Font;
 
 public class FS_GestionSemestreEnCours extends JFrame {
 
@@ -64,7 +66,7 @@ public class FS_GestionSemestreEnCours extends JFrame {
 		
 		{
 			label = new JLabel("Filtrer:");
-			label.setBounds(43, 17, 90, 14);
+			label.setBounds(50, 67, 90, 14);
 			contentPanel.add(label);
 		}
 		
@@ -77,21 +79,41 @@ public class FS_GestionSemestreEnCours extends JFrame {
 		TableModel model = new DefaultTableModel(rowData, columnNames);
 		
 		table = new JTable(rowData, columnNames);
-		table.setBounds(43, 50, 500, 350);
+		//table.setBounds(50, 50, 500, 350);
 		scrollPane = new JScrollPane(table);
-		scrollPane.setBounds(43, 50, 500, 350);
+		scrollPane.setBounds(50, 100, 500, 300);
 		contentPanel.add(scrollPane);
 		
 		
 		}
 		Object typeEtudiant[] = {"Les etudiantes retards", "Les etudiants retards critique","Les etudiants excellents"};
 		JSpinner spinner = new JSpinner(new SpinnerListModel(typeEtudiant));
-		spinner.setBounds(104, 11, 233, 20);
+		spinner.setBounds(104, 60, 233, 20);
 		contentPanel.add(spinner);
 		
 		JButton btnNewButton = new JButton("Cursus spécialisé");
-		btnNewButton.setBounds(379, 8, 163, 23);
+		btnNewButton.setBounds(379, 60, 163, 23);
 		contentPanel.add(btnNewButton);
+		
+		JPanel panel = new JPanel();
+		panel.setLayout(null);
+		panel.setBounds(0, 0, 600, 37);
+		contentPanel.add(panel);
+		
+		JLabel lblGestionDuSemestre = new JLabel("Gestion du semestre en cours");
+		lblGestionDuSemestre.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblGestionDuSemestre.setBackground(Color.WHITE);
+		lblGestionDuSemestre.setBounds(180, 7, 250, 20);
+		panel.add(lblGestionDuSemestre);
+		
+		JButton button = new JButton("Déconnexion");
+		button.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		button.setBounds(490, 9, 107, 23);
+		panel.add(button);
+		
+		JButton button_1 = new JButton("");
+		button_1.setBounds(0, 0, 42, 36);
+		panel.add(button_1);
 		getContentPane().setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[]{contentPanel, label, scrollPane, table}));
 	
 	}
