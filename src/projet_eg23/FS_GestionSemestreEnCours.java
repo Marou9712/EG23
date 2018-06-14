@@ -75,8 +75,7 @@ public class FS_GestionSemestreEnCours extends JFrame {
 			
 		Object rowData[][] = { { "1", "Helene Gregoff", "TCBR"},
                 { "Row2-Column1", "Row2-Column2", "Row2-Column3"} };
-		Object columnNames[] = { "Numero Etudiant", "Nom et Prenom", "Formation",};
-		TableModel model = new DefaultTableModel(rowData, columnNames);
+		Object columnNames[] = { "Numero Etudiant", "Nom et Prenom", "Formation"};
 		
 		table = new JTable(rowData, columnNames);
 		//table.setBounds(50, 50, 500, 350);
