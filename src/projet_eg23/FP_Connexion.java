@@ -101,7 +101,7 @@ public class FP_Connexion {
 		panel.add(passwordField);
 		
 		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon("C:\\Users\\Marion\\Documents\\ISI_utt\\Semestre6\\EG23\\Projet\\UTT-2.jpg"));
+		label.setIcon(new ImageIcon("C:\\Users\\Marion\\Documents\\ISI_utt\\Semestre6\\EG23\\Projet\\UTT-3.jpg"));
 		label.setBounds(-320, -339, 1114, 810);
 		panel.add(label);
 	}
