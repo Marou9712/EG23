@@ -15,6 +15,8 @@ import javax.swing.JSpinner;
 import javax.swing.JTable;
 import javax.swing.SpinnerListModel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
@@ -95,6 +97,9 @@ public class FS_RepartitionEtudiants extends JFrame {
 		spinner.setBounds(152, 62, 82, 23);
 		contentPanel.add(spinner);
 		
+		
+		
+		
 		JPanel panel = new JPanel();
 		panel.setLayout(null);
 		panel.setBounds(0, 0, 600, 37);
@@ -124,5 +129,17 @@ public class FS_RepartitionEtudiants extends JFrame {
 		spinner_1.setBounds(445, 61, 82, 23);
 		contentPanel.add(spinner_1);
 		getContentPane().setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[]{contentPanel, label, scrollPane, table}));
+		
+		
+		ChangeListener listener = new ChangeListener() {
+			@Override
+			public void stateChanged(ChangeEvent e) {
+				table.repaint();
+				
+			}
+		    };
+
+		 spinner.addChangeListener(listener);
+		 spinner_1.addChangeListener(listener);
 	}
 }

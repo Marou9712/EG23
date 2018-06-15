@@ -8,6 +8,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import javax.swing.table.DefaultTableColumnModel;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
@@ -89,6 +91,16 @@ public class FS_GestionSemestreEnCours extends JFrame {
 		JSpinner spinner = new JSpinner(new SpinnerListModel(typeEtudiant));
 		spinner.setBounds(104, 60, 233, 20);
 		contentPanel.add(spinner);
+		
+		ChangeListener listener = new ChangeListener() {
+			@Override
+			public void stateChanged(ChangeEvent e) {
+				table.repaint();
+				
+			}
+		    };
+
+		 spinner.addChangeListener(listener);
 		
 		JButton btnNewButton = new JButton("Cursus spécialisé");
 		btnNewButton.setBounds(379, 60, 163, 23);
