@@ -59,6 +59,8 @@ public class FS_RepartitionEtudiants extends JFrame {
 	 * Create the frame.
 	 */
 	public FS_RepartitionEtudiants() {
+		getContentPane().setBackground(Color.WHITE);
+		setBackground(Color.WHITE);
 		
 		
 		

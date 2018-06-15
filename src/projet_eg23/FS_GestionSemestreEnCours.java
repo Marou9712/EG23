@@ -28,6 +28,8 @@ import javax.swing.JSpinner;
 import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class FS_GestionSemestreEnCours extends JFrame {
 
@@ -105,6 +107,13 @@ public class FS_GestionSemestreEnCours extends JFrame {
 		JButton btnNewButton = new JButton("Cursus spécialisé");
 		btnNewButton.setBounds(379, 60, 163, 23);
 		contentPanel.add(btnNewButton);
+		btnNewButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				BD_ChoixPositionnement choixPositionBD = new BD_ChoixPositionnement();
+			}
+		});
+		
 		
 		JPanel panel = new JPanel();
 		panel.setLayout(null);
