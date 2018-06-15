@@ -16,6 +16,8 @@ import javax.swing.ScrollPaneConstants;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
 import java.awt.Color;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class FS_GestionUEs extends JFrame {
 
@@ -64,19 +66,12 @@ public class FS_GestionUEs extends JFrame {
 		scrollPane.setViewportView(table);
 		table.setModel(new DefaultTableModel(
 			new Object[][] {
-				{null, null},
+				{"NF16", "Bases de donn\u00E9es"},
 			},
 			new String[] {
 				"Code", "Label"
 			}
-		) {
-			Class[] columnTypes = new Class[] {
-				String.class, String.class
-			};
-			public Class getColumnClass(int columnIndex) {
-				return columnTypes[columnIndex];
-			}
-		});
+		));
 		table.getColumnModel().getColumn(0).setPreferredWidth(15);
 		table.getColumnModel().getColumn(0).setMinWidth(10);
 		table.getColumnModel().getColumn(1).setPreferredWidth(400);
@@ -91,6 +86,13 @@ public class FS_GestionUEs extends JFrame {
 		contentPane.add(button);
 		
 		JButton btnVoir = new JButton("Voir");
+		btnVoir.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				FS_GestionUEDetails.openGestionUEDetails();
+				FS_GestionUEs.this.dispose();
+			}
+		});
 		btnVoir.setBounds(589, 248, 89, 23);
 		contentPane.add(btnVoir);
 		
@@ -106,11 +108,25 @@ public class FS_GestionUEs extends JFrame {
 		panel.add(lblGestionDesUes);
 		
 		JButton button_1 = new JButton("D\u00E9connexion");
+		button_1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				FP_Connexion.main(null);
+				FS_GestionUEs.this.dispose();
+			}
+		});
 		button_1.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		button_1.setBounds(660, 9, 107, 23);
 		panel.add(button_1);
 		
 		JButton button_2 = new JButton("");
+		button_2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				FS_MenuPrincipal2.openMenuPrincipal();
+				FS_GestionUEs.this.dispose();
+			}
+		});
 		button_2.setIcon(new ImageIcon("C:\\Users\\Marion\\Pictures\\Android\\drawable-hdpi\\ic_keyboard_arrow_left_black_24dp.png"));
 		button_2.setBounds(0, 0, 42, 36);
 		panel.add(button_2);
