@@ -17,8 +17,6 @@ import javax.swing.ScrollPaneConstants;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
 public class FS_GestionUEDetails extends JFrame {
 
@@ -32,7 +30,7 @@ public class FS_GestionUEDetails extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void openGestionUEDetails() {
+	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -68,25 +66,11 @@ public class FS_GestionUEDetails extends JFrame {
 		panel.add(lblGestionDesUes);
 		
 		JButton button = new JButton("D\u00E9connexion");
-		button.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				FP_Connexion.main(null);
-				FS_GestionUEDetails.this.dispose();
-			}
-		});
 		button.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		button.setBounds(660, 9, 107, 23);
 		panel.add(button);
 		
 		JButton button_1 = new JButton("");
-		button_1.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				FS_GestionUEs.openGestionUEs();
-				FS_GestionUEDetails.this.dispose();
-			}
-		});
 		button_1.setIcon(new ImageIcon("C:\\Users\\Marion\\Pictures\\Android\\drawable-hdpi\\ic_keyboard_arrow_left_black_24dp.png"));
 		button_1.setBounds(0, 0, 42, 36);
 		panel.add(button_1);
@@ -109,7 +93,6 @@ public class FS_GestionUEDetails extends JFrame {
 		table = new JTable();
 		table.setModel(new DefaultTableModel(
 			new Object[][] {
-				{"ISI", "39966", "MAROLANY", "Marion"},
 			},
 			new String[] {
 				"D\u00E9partement", "Code", "Nom", "Pr\u00E9nom"
