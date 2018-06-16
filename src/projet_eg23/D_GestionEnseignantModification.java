@@ -11,6 +11,8 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.Color;
+import java.awt.Font;
 
 public class D_GestionEnseignantModification extends JDialog {
 
@@ -19,12 +21,14 @@ public class D_GestionEnseignantModification extends JDialog {
 	 */
 	private static final long serialVersionUID = 1L;
 	private final JPanel contentPanel = new JPanel();
+	
 	private JTextField textField_heures;
 	private JTextField textField_type;
 	private JTextField textField_date;
 	private JTextField textField_prenom;
 	private JTextField textField_nom;
 
+	//values
 	static String vNom;
 	static String vPrenom;
 	static String vDate;
@@ -42,7 +46,7 @@ public class D_GestionEnseignantModification extends JDialog {
 		vNbHeures = nbHeures;
 		try {
 			D_GestionEnseignantModification dialog = new D_GestionEnseignantModification();
-			dialog.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
+			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			dialog.setVisible(true);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -127,7 +131,12 @@ public class D_GestionEnseignantModification extends JDialog {
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			{
+				//OK
 				JButton okButton = new JButton("OK");
+				okButton.setForeground(new Color(255, 255, 255));
+				okButton.setFont(new Font("Tahoma", Font.BOLD, 11));
+				okButton.setBackground(new Color(0, 0, 128));
+				//on click save modification
 				okButton.addMouseListener(new MouseAdapter() {
 					@Override
 					public void mouseClicked(MouseEvent e) {
@@ -144,7 +153,12 @@ public class D_GestionEnseignantModification extends JDialog {
 				getRootPane().setDefaultButton(okButton);
 			}
 			{
+				//cancel
 				JButton cancelButton = new JButton("Cancel");
+				cancelButton.setForeground(new Color(255, 255, 255));
+				cancelButton.setFont(new Font("Tahoma", Font.BOLD, 11));
+				cancelButton.setBackground(new Color(0, 0, 128));
+				//on click close this dialog
 				cancelButton.addMouseListener(new MouseAdapter() {
 					@Override
 					public void mouseClicked(MouseEvent e) {

@@ -46,7 +46,7 @@ public class FS_MenuPrincipal {
 		frame.setResizable(false);
 		frame.setBounds(100, 100, 800, 500);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Marion\\Pictures\\images.jpg"));
+		frame.setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Marion\\Documents\\ISI_utt\\Semestre6\\EG23\\Projet\\projet_eg23\\images\\images.jpg"));
 		frame.setTitle("Gestion UTT");
 		frame.getContentPane().setLayout(null);
 		

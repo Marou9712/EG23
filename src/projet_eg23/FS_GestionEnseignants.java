@@ -24,14 +24,16 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.event.ListSelectionEvent;
+import javax.swing.border.LineBorder;
 
 public class FS_GestionEnseignants extends JFrame {
 
 	/**
-	 * 
+	 * Dashboard "Gestion des enseignants", can disconnect from there
 	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
+	//to set the name from the selected item (of the list)
 	String vNom;
 	String vPrenom;
 	String vDate;
@@ -60,7 +62,7 @@ public class FS_GestionEnseignants extends JFrame {
 	public FS_GestionEnseignants() {
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Marion\\Pictures\\images.jpg"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Marion\\Documents\\ISI_utt\\Semestre6\\EG23\\Projet\\projet_eg23\\images\\images.jpg"));
 		setTitle("Gestion UTT");
 		setBounds(100, 100, 800, 500);
 		contentPane = new JPanel();
@@ -73,6 +75,7 @@ public class FS_GestionEnseignants extends JFrame {
 		panel.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		panel.setLayout(null);
 		
+		//labels
 		JLabel lblNom = new JLabel("Nom:");
 		lblNom.setBounds(10, 11, 112, 14);
 		panel.add(lblNom);
@@ -93,6 +96,7 @@ public class FS_GestionEnseignants extends JFrame {
 		lblNombreDheures.setBounds(10, 110, 112, 14);
 		panel.add(lblNombreDheures);
 		
+		//values
 		JLabel txtNom = new JLabel("NIGRO");
 		txtNom.setBounds(132, 11, 117, 14);
 		panel.add(txtNom);
@@ -106,6 +110,7 @@ public class FS_GestionEnseignants extends JFrame {
 		panel.add(txtDate);
 		
 		JLabel txtType = new JLabel("Professeur");
+		txtType.setBackground(new Color(255, 255, 255));
 		txtType.setBounds(132, 85, 117, 14);
 		panel.add(txtType);
 		
@@ -113,14 +118,22 @@ public class FS_GestionEnseignants extends JFrame {
 		txtNbHeures.setBounds(132, 110, 117, 14);
 		panel.add(txtNbHeures);
 		
-		
+		//these functions are not implemented yet
 		JButton btnSupprimer = new JButton("Supprimer");
+		btnSupprimer.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btnSupprimer.setBackground(new Color(0, 0, 128));
+		btnSupprimer.setForeground(new Color(255, 255, 255));
 		
 		JButton btnAjouter = new JButton("Ajouter");
+		btnAjouter.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btnAjouter.setBackground(new Color(0, 0, 128));
+		btnAjouter.setForeground(new Color(255, 255, 255));
 		
+		//list of teachers
 		JList<String> list_enseignant = new JList<String>();
 		list_enseignant.addListSelectionListener(new ListSelectionListener() {
 			public void valueChanged(ListSelectionEvent e) {
+				//set values from item of list
 				switch(list_enseignant.getSelectedIndex()) {
 				case 0:
 					txtNom.setText("NIGRO");
@@ -178,8 +191,9 @@ public class FS_GestionEnseignants extends JFrame {
 		});
 		list_enseignant.setSelectedIndex(0);
 		
+		
 		JLabel lblNewLabel = new JLabel("D\u00E9tails sur les enseignants");
-		lblNewLabel.setForeground(new Color(65, 105, 225));
+		lblNewLabel.setForeground(new Color(0, 0, 128));
 		lblNewLabel.setBackground(new Color(240, 248, 255));
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		
@@ -193,13 +207,15 @@ public class FS_GestionEnseignants extends JFrame {
 		panel_1.add(label);
 		
 		JList<String> list = new JList<String>();
+		list.setBorder(new LineBorder(new Color(0, 0, 0)));
+		list.setBackground(new Color(245, 245, 245));
 		list.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		list.setModel(new AbstractListModel<String>() {
 			/**
 			 * 
 			 */
 			private static final long serialVersionUID = 1L;
-			String[] values = new String[] {"NF19", "LO07"};
+			String[] values = new String[] {"EG23"};
 			public int getSize() {
 				return values.length;
 			}
@@ -211,6 +227,7 @@ public class FS_GestionEnseignants extends JFrame {
 		panel_1.add(list);
 		
 		JPanel panel_2 = new JPanel();
+		panel_2.setBackground(new Color(0, 0, 128));
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
@@ -261,19 +278,41 @@ public class FS_GestionEnseignants extends JFrame {
 					.addContainerGap(25, Short.MAX_VALUE))
 		);
 		
+		//not implemented yet, on click get details of UE on dashboard "Gestion des UEs"
 		JButton btnDtailsUe = new JButton("D\u00E9tails UE");
+		btnDtailsUe.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				FS_GestionUEs.openGestionUEs();
+				FS_GestionEnseignants.openGestionEnseignants();
+			}
+		});
+		btnDtailsUe.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btnDtailsUe.setBackground(new Color(0, 0, 128));
+		btnDtailsUe.setForeground(new Color(255, 255, 255));
 		btnDtailsUe.setBounds(38, 121, 99, 23);
 		panel_1.add(btnDtailsUe);
 		
+		//add or suppress teacher, not implemented yet
 		JButton button_1 = new JButton("Ajouter");
+		button_1.setFont(new Font("Tahoma", Font.BOLD, 11));
+		button_1.setBackground(new Color(0, 0, 128));
+		button_1.setForeground(new Color(255, 255, 255));
 		button_1.setBounds(229, 48, 134, 23);
 		panel_1.add(button_1);
 		
 		JButton button_2 = new JButton("Supprimer");
+		button_2.setFont(new Font("Tahoma", Font.BOLD, 11));
+		button_2.setBackground(new Color(0, 0, 128));
+		button_2.setForeground(new Color(255, 255, 255));
 		button_2.setBounds(229, 88, 134, 23);
 		panel_1.add(button_2);
 		
+		//modify values, on click, go to "GestionEnseignants_Modification"
 		JButton btnModifier = new JButton("Modifier");
+		btnModifier.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btnModifier.setBackground(new Color(0, 0, 128));
+		btnModifier.setForeground(new Color(255, 255, 255));
 		btnModifier.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -285,12 +324,15 @@ public class FS_GestionEnseignants extends JFrame {
 		panel_2.setLayout(null);
 		
 		JLabel lblGestionDesEnseignants = new JLabel("Gestion des Enseignants");
+		lblGestionDesEnseignants.setForeground(new Color(255, 255, 255));
 		lblGestionDesEnseignants.setBounds(285, 8, 198, 20);
 		panel_2.add(lblGestionDesEnseignants);
 		lblGestionDesEnseignants.setBackground(new Color(255, 255, 255));
 		lblGestionDesEnseignants.setFont(new Font("Tahoma", Font.BOLD, 16));
 		
+		//disconnect
 		JButton button_3 = new JButton("D\u00E9connexion");
+		button_3.setBackground(new Color(220, 220, 220));
 		button_3.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -301,7 +343,9 @@ public class FS_GestionEnseignants extends JFrame {
 		panel_2.add(button_3);
 		button_3.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		
+		//back to "Menu principal"
 		JButton btnRetour = new JButton("");
+		btnRetour.setBackground(new Color(220, 220, 220));
 		btnRetour.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -313,10 +357,18 @@ public class FS_GestionEnseignants extends JFrame {
 		btnRetour.setBounds(0, 0, 42, 36);
 		panel_2.add(btnRetour);
 		contentPane.setLayout(gl_contentPane);
+
+		//background
+		JLabel label_1 = new JLabel("");
+		label_1.setIcon(new ImageIcon("C:\\Users\\Marion\\Documents\\ISI_utt\\Semestre6\\EG23\\Projet\\projet_eg23\\images\\UTT-5.jpg"));
+		label_1.setBounds(-373, -339, 1268, 810);
+		contentPane.add(label_1);
+		
 	}
 
-	
-
+	/**
+	 * Set values from the TextFields in frame D_GestionEnseignantModification (update)
+	 */
 	public void setVariables() {
 		FS_GestionEnseignants.this.setvNom(D_GestionEnseignantModification.vNom);
 		FS_GestionEnseignants.this.setvPrenom(D_GestionEnseignantModification.vPrenom);

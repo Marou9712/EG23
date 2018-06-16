@@ -1,20 +1,21 @@
 package projet_eg23;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 import javax.swing.JRadioButton;
-import javax.swing.SwingConstants;
-import javax.swing.JLabel;
 
 public class BD_ChoixPositionnement extends JFrame{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	
 	public static void openBD() {
@@ -35,6 +36,7 @@ public class BD_ChoixPositionnement extends JFrame{
 	 */
 	public BD_ChoixPositionnement() {
 		setTitle("Choix positionnement");
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Marion\\Documents\\ISI_utt\\Semestre6\\EG23\\Projet\\projet_eg23\\images\\images.jpg"));
 		setBounds(100, 100, 400, 255);
 		getContentPane().setLayout(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

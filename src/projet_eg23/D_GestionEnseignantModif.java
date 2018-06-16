@@ -1,6 +1,7 @@
 package projet_eg23;
 
 import java.awt.EventQueue;
+import java.awt.Toolkit;
 
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
